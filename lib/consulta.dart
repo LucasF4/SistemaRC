@@ -31,7 +31,7 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
 
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      body: resultadoClass.fantasia == null ?
+      body: resultadoClass.nome == null ?
       Center(
               child: SingleChildScrollView(
                 child: Form(
@@ -74,6 +74,7 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                     child: Padding(
                       padding: EdgeInsets.only(left: 20.0),
                       child: TextFormField(
+                        keyboardType: TextInputType.number,
                         validator: (value){
                           if(value!.isEmpty){
                             return 'Informe o CNPJ';
@@ -128,21 +129,259 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                 ),
               ),
             )
-            :
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('${resultadoClass.fantasia}'),
-                  TextButton(child: Text('Retornar'),
-                  onPressed: () => {
-                    setState((){
-                      resultadoClass.fantasia = null;
-                    })
-                  },)
-                ])
-            )
-          );
+            : SingleChildScrollView(
+                child: SafeArea(
+                child: Padding(
+                  padding: EdgeInsets.all(25),
+                  child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text('${resultadoClass.nome}',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: w * 0.048
+                        ),),
+                      ]
+                    ),
+                    Divider(),
+                    SizedBox(height: 30,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          child: Row(
+                            children: [
+                              Text('CEP: ',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: w * 0.039
+                              ),),
+                              Text('${resultadoClass.cep}',
+                              style: TextStyle(fontSize: w * 0.039),),
+                            ],
+                          )
+                        ),
+                        Container(
+                          child: Row(
+                            children: [
+                              Text('BAIRRO: ',
+                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: w * 0.039),),
+                              Text('${resultadoClass.bairro}',
+                              style: TextStyle(
+                                fontSize: w * 0.039
+                              ),)
+                            ],
+                          )
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          child: Row(
+                            children: [
+                              Text('LOGRADOURO: ',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: w * 0.039
+                              ),),
+                              Text('${resultadoClass.logradouro}',
+                              style: TextStyle(fontSize:w * 0.039),),
+                            ],
+                          ),
+                        ),
+                      ]
+                    ),
+                    SizedBox(height: 10,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          child: Row(
+                            children: [
+                              Text('Nº: ',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: w * 0.039
+                              ),),
+                              Text('${resultadoClass.numero}',
+                              style: TextStyle(fontSize:w * 0.039),),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          child: Row(
+                            children: [
+                              Text('MUNICIPIO: ',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: w * 0.039
+                              ),),
+                              Text('${resultadoClass.municipio}',
+                              style: TextStyle(fontSize:w * 0.039),),
+                            ],
+                          ),
+                        ),
+                      ]
+                    ),
+                    SizedBox(height: 10,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          child: Row(
+                            children: [
+                              Text('UF: ',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: w * 0.039
+                              ),),
+                              Text('${resultadoClass.uf}',
+                              style: TextStyle(fontSize:w * 0.039),),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          child: Row(
+                            children: [
+                              Text('CNPJ: ',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: w * 0.039
+                              ),),
+                              Text('${resultadoClass.cnpj}',
+                              style: TextStyle(fontSize:w * 0.039),),
+                            ],
+                          ),
+                        ),
+                      ]
+                    ),
+                    SizedBox(height: 10,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          child: Row(
+                            children: [
+                              Text('FANTASIA: ',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: w * 0.039
+                              ),),
+                              Text('${resultadoClass.fantasia}',
+                              style: TextStyle(fontSize:w * 0.039),),
+                            ],
+                          ),
+                        ),
+                        
+                      ]
+                    ),
+                    SizedBox(height: 25),
+                    Text('SITUACAO',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20
+                    ),),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          child: Row(
+                            children: [
+                              Text('DATA DA SITUAÇÃO: ',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: w * 0.039
+                              ),),
+                              Text('${resultadoClass.dataSituacao}',
+                              style: TextStyle(fontSize:w * 0.039),),
+                            ],
+                          ),
+                        ),
+                      ]
+                    ),
+                    Container(
+                          child: Row(
+                            children: [
+                              Text('SITUACAO: ',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: w * 0.039
+                              ),),
+                              Text('${resultadoClass.situacao}',
+                              style: TextStyle(fontSize:w * 0.039),),
+                            ],
+                          ),
+                        ),
+                    SizedBox(height: 25,),
+                    Text('CONTATOS',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20
+                    ),),
+                    SizedBox(height: 10,),
+                    Container(
+                       child: Row(
+                        children: [
+                          Text('E-MAIL: ',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: w * 0.039
+                          ),),
+                          Text('${resultadoClass.email}',
+                          style: TextStyle(fontSize:w * 0.039),),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      child: Row(
+                        children: [
+                          Text('Phone: ',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: w * 0.039
+                          ),),
+                          Text('${resultadoClass.telefone}',
+                          style: TextStyle(fontSize:w * 0.039),),
+                        ]
+                      )
+                    ),
+                    SizedBox(height: 25),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 25.0),
+                      child: Container(
+                        width: w,
+                        height: 50,
+                        decoration: new BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.deepPurple
+                        ),
+                        child: RawMaterialButton(
+                          child: Text('Consultar outro CNPJ',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18
+                          ),),
+                          onPressed: (){
+                            setState(() {
+                              resultadoClass.nome = null;
+                              _cnpj.clear();
+                            });
+                          },
+                        )
+                      ),
+                    )
+                  ])
+                )
+              )
+              )
+            );
   }
 
   /* Center(
@@ -253,13 +492,24 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
     //print('Body: ${response.body}');
 
     var content = json.decode(response.body);
-    print(content['fantasia']);
+    print(content['nome']);
 
     Map<String, dynamic> dados = json.decode(response.body);
 
     setState((){
+      resultadoClass.cnpj = _cnpj.text;
+      resultadoClass.nome = dados['nome'];
+      resultadoClass.cep = dados['cep'];
+      resultadoClass.situacao = dados['situacao'];
       resultadoClass.fantasia = dados['fantasia'];
-      print(resultadoClass.fantasia);
+      resultadoClass.bairro = dados['bairro'];
+      resultadoClass.logradouro = dados['logradouro'];
+      resultadoClass.numero = dados['numero'];
+      resultadoClass.municipio = dados['municipio'];
+      resultadoClass.uf = dados['uf'];
+      resultadoClass.dataSituacao = dados['data_situacao'];
+      resultadoClass.email = dados['email'];
+      resultadoClass.telefone = dados['telefone'];
     });
     
   }

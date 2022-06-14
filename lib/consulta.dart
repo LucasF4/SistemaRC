@@ -129,7 +129,7 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                 ),
               ),
             )
-            : SingleChildScrollView(
+            : Center(child: SingleChildScrollView(
                 child: SafeArea(
                 child: Padding(
                   padding: EdgeInsets.all(25),
@@ -145,12 +145,37 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                         ),),
                       ]
                     ),
-                    Divider(),
-                    SizedBox(height: 30,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
+                          child: Row(
+                            children: [
+                              Text('FANTASIA: ',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: w * 0.035
+                              ),),
+                              Text('${resultadoClass.fantasia}',
+                              style: TextStyle(fontSize:w * 0.035),),
+                            ],
+                          ),
+                        ),
+                        
+                      ]
+                    ),/* 
+                    Divider(),
+                    SizedBox(height: 30,),
+                    Text('INFORMACOES',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20
+                    ),),
+                    SizedBox(height: 15,), */
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        /* Container(
                           child: Row(
                             children: [
                               Text('CEP: ',
@@ -177,7 +202,6 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -196,7 +220,6 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                         ),
                       ]
                     ),
-                    SizedBox(height: 10,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -213,7 +236,9 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                             ],
                           ),
                         ),
-                        Container(
+                      ]
+                    ),
+                    Container(
                           child: Row(
                             children: [
                               Text('MUNICIPIO: ',
@@ -226,9 +251,6 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                             ],
                           ),
                         ),
-                      ]
-                    ),
-                    SizedBox(height: 10,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -244,7 +266,7 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                               style: TextStyle(fontSize:w * 0.039),),
                             ],
                           ),
-                        ),
+                        ), */
                         Container(
                           child: Row(
                             children: [
@@ -260,26 +282,7 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                         ),
                       ]
                     ),
-                    SizedBox(height: 10,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Row(
-                            children: [
-                              Text('FANTASIA: ',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: w * 0.039
-                              ),),
-                              Text('${resultadoClass.fantasia}',
-                              style: TextStyle(fontSize:w * 0.039),),
-                            ],
-                          ),
-                        ),
-                        
-                      ]
-                    ),
+                    Divider(),
                     SizedBox(height: 25),
                     Text('SITUACAO',
                     style: TextStyle(
@@ -299,7 +302,8 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                                 fontSize: w * 0.039
                               ),),
                               Text('${resultadoClass.dataSituacao}',
-                              style: TextStyle(fontSize:w * 0.039),),
+                              style: TextStyle(
+                                fontSize:w * 0.039),),
                             ],
                           ),
                         ),
@@ -314,12 +318,29 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                                 fontSize: w * 0.039
                               ),),
                               Text('${resultadoClass.situacao}',
-                              style: TextStyle(fontSize:w * 0.039),),
+                              style: TextStyle(
+                                color: resultadoClass.situacao == 'ATIVA' ? Colors.green : Colors.red,
+                                fontSize:w * 0.039,
+                                fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
-                    SizedBox(height: 25,),
-                    Text('CONTATOS',
+                      Row(
+                            children: [
+                              Text('MOTIVO: ',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: w * 0.039
+                              ),),
+                              resultadoClass.motivoSituacao != '' ? Text('${resultadoClass.motivoSituacao}',
+                              style: TextStyle(fontSize:w * 0.039),)
+                              :
+                              Text('NENHUM MOTIVO DESCRITO',
+                              style: TextStyle(fontSize:w * 0.039),)
+                            ],
+                          ),
+                    SizedBox(height: h * 0.14,),
+                    /* Text('CONTATOS',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20
@@ -351,7 +372,7 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                         ]
                       )
                     ),
-                    SizedBox(height: 25),
+                    SizedBox(height: h * 0.15), */
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 25.0),
                       child: Container(
@@ -381,6 +402,7 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                 )
               )
               )
+            )
             );
   }
 
@@ -510,6 +532,7 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
       resultadoClass.dataSituacao = dados['data_situacao'];
       resultadoClass.email = dados['email'];
       resultadoClass.telefone = dados['telefone'];
+      resultadoClass.motivoSituacao = dados['motivo_situacao'];
     });
     
   }

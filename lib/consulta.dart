@@ -129,19 +129,30 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                 ),
               ),
             )
-            : Center(child: SingleChildScrollView(
+            : SingleChildScrollView(
                 child: SafeArea(
-                child: Padding(
-                  padding: EdgeInsets.all(25),
-                  child: Column(
+                child:Column(children: [
+                  Container(child: Column(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text('${resultadoClass.nome}',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: w * 0.048
+                    Container(
+                      height: h - 100,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/backgroundApp.png'),
+                          fit: BoxFit.fill
+                        )
+                      ),
+                      child: Padding(padding: EdgeInsets.all(20),
+                      child: Column( 
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text('${resultadoClass.nome}',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: w * 0.048
                         ),),
                       ]
                     ),
@@ -319,7 +330,7 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                               ),),
                               Text('${resultadoClass.situacao}',
                               style: TextStyle(
-                                color: resultadoClass.situacao == 'ATIVA' ? Colors.green : Colors.red,
+                                color: resultadoClass.situacao == 'ATIVA' ? Colors.green[300] : Colors.red,
                                 fontSize:w * 0.039,
                                 fontWeight: FontWeight.bold),),
                             ],
@@ -373,7 +384,14 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                       )
                     ),
                     SizedBox(height: h * 0.15), */
-                    Padding(
+                    
+                        ],
+                      ),
+                    ),
+                    )
+                  ])
+                ), Container(
+                  child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 25.0),
                       child: Container(
                         width: w,
@@ -398,11 +416,10 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                         )
                       ),
                     )
-                  ])
                 )
+                ],)
               )
               )
-            )
             );
   }
 

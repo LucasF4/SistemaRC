@@ -15,8 +15,6 @@ class ConsultaCnpj extends StatefulWidget {
   State<ConsultaCnpj> createState() => _ConsultaCnpjState();
 }
 
-//32267292000110
-
 class _ConsultaCnpjState extends State<ConsultaCnpj> {
   final _formKey = GlobalKey<FormState>();
   final _cnpj = TextEditingController();
@@ -157,111 +155,10 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                                     ),
                                   ),
                                 ]),
-                            /* 
-                    Divider(),
-                    SizedBox(height: 30,),
-                    Text('INFORMACOES',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20
-                    ),),
-                    SizedBox(height: 15,), */
                             Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  /* Container(
-                          child: Row(
-                            children: [
-                              Text('CEP: ',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: w * 0.039
-                              ),),
-                              Text('${resultadoClass.cep}',
-                              style: TextStyle(fontSize: w * 0.039),),
-                            ],
-                          )
-                        ),
-                        Container(
-                          child: Row(
-                            children: [
-                              Text('BAIRRO: ',
-                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: w * 0.039),),
-                              Text('${resultadoClass.bairro}',
-                              style: TextStyle(
-                                fontSize: w * 0.039
-                              ),)
-                            ],
-                          )
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          child: Row(
-                            children: [
-                              Text('LOGRADOURO: ',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: w * 0.039
-                              ),),
-                              Text('${resultadoClass.logradouro}',
-                              style: TextStyle(fontSize:w * 0.039),),
-                            ],
-                          ),
-                        ),
-                      ]
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Row(
-                            children: [
-                              Text('Nº: ',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: w * 0.039
-                              ),),
-                              Text('${resultadoClass.numero}',
-                              style: TextStyle(fontSize:w * 0.039),),
-                            ],
-                          ),
-                        ),
-                      ]
-                    ),
-                    Container(
-                          child: Row(
-                            children: [
-                              Text('MUNICIPIO: ',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: w * 0.039
-                              ),),
-                              Text('${resultadoClass.municipio}',
-                              style: TextStyle(fontSize:w * 0.039),),
-                            ],
-                          ),
-                        ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Row(
-                            children: [
-                              Text('UF: ',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: w * 0.039
-                              ),),
-                              Text('${resultadoClass.uf}',
-                              style: TextStyle(fontSize:w * 0.039),),
-                            ],
-                          ),
-                        ), */
                                   Container(
                                     child: Row(
                                       children: [
@@ -352,39 +249,6 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                             SizedBox(
                               height: h * 0.14,
                             ),
-                            /* Text('CONTATOS',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20
-                    ),),
-                    SizedBox(height: 10,),
-                    Container(
-                       child: Row(
-                        children: [
-                          Text('E-MAIL: ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: w * 0.039
-                          ),),
-                          Text('${resultadoClass.email}',
-                          style: TextStyle(fontSize:w * 0.039),),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      child: Row(
-                        children: [
-                          Text('Phone: ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: w * 0.039
-                          ),),
-                          Text('${resultadoClass.telefone}',
-                          style: TextStyle(fontSize:w * 0.039),),
-                        ]
-                      )
-                    ),
-                    SizedBox(height: h * 0.15), */
                           ],
                         ),
                       ),
@@ -418,103 +282,6 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                 ],
               ))));
   }
-
-  /* Center(
-        child: SingleChildScrollView(
-        child: Form(
-          key: _formKey,
-          child: SafeArea(
-            child: FutureBuilder<List<Resultado>>(
-              future: resultado2,
-              builder: (context, snapshot){
-                if(snapshot.hasData){
-                  return ListView.builder(
-                    itemCount: snapshot.data!.length,
-                    itemBuilder: (context, index){
-                      Resultado resultado = snapshot.data![index];
-                      return ListTile(
-                        title: Text(resultado.nome!),
-                      );
-                    },
-                  );
-                }else if(snapshot.hasError){
-                  return Text(snapshot.error.toString());
-                }
-                return const CircularProgressIndicator();
-              },
-            )
-          )
-        )
-        )
-      ) */
-
-  /* return Material(
-      child: Form(
-        key: _formKey,
-        child: Container(
-        padding: EdgeInsets.symmetric(horizontal: w * 0.03),
-        height: h * 0.9,
-        width: w,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 0.0013),
-              child: TextFormField(
-                controller: _cnpj,
-                validator: (value){
-                  if(value!.isEmpty){
-                    return 'Informe um CPNJ';
-                  }
-                  return null;
-                },
-                keyboardType: TextInputType.number,
-                inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly,
-                  CnpjInputFormatter()
-                ], 
-                decoration: InputDecoration(
-                hintText: 'Insira o CNPJ'
-              ),)
-            ),
-            Text('CNPJ Inserido: $textcnpj'),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                RawMaterialButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12)
-                  ),
-                  elevation: 18,
-                  padding: EdgeInsets.all(18),
-                  child: const Text('Consultar',
-                  style: TextStyle(
-                    color: Colors.white
-                  ),),
-                  fillColor: Colors.blue,
-                  onPressed: (){
-                    if(_formKey.currentState!.validate()){
-                      if(_cnpj.text.length < 18){
-                        print('erro');
-                        setState((){
-                          textcnpj = 'Formato CNPJ Inválido';
-                        });
-                        return;
-                      }
-                      
-                      _loginUser();
-                      
-                    }
-                  },
-                )
-              ],
-            )
-          ],
-        ),
-      ),
-      )
-    ); */
 
   Future _consultarCnpj() async {
     var cnpjReplacement =
@@ -551,19 +318,6 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
         });
       } else if (response.statusCode == 429) {
         print("Ocorreu um erro");
-        /* showDialog(
-            context: context,
-            builder: (context) {
-              return AlertDialog(
-                title: Text("Ops..."),
-                content: Text("Aguarde 1 minuto, para fazer uma nova consulta"),
-                actions: [
-                  TextButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: Text("Okay"))
-                ],
-              );
-            }); */
         Fluttertoast.showToast(
             msg: 'Aguarde 1 minuto para fazer uma nova consulta.');
       } else {
@@ -571,7 +325,6 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
         print(response.statusCode);
         Fluttertoast.showToast(msg: 'Algo deu errado!');
       }
-      //print('Body: ${response.body}');
     } catch (e) {
       print(e);
       Fluttertoast.showToast(msg: "Verifique a sua conexão com a internet.");

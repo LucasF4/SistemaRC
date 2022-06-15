@@ -1,16 +1,26 @@
 # consulta_cnpj
 
-A new Flutter project.
+## Versão do aplicativo
+Aplicativo desenvolvido versão 1.0.0
 
-## Getting Started
+## Requisitos de versionamento
+Flutter 2.10.5 - channel stable
+Dart 2.16.2
 
-This project is a starting point for a Flutter application.
+## Objetivo
+O aplicativo Consulta CNPJ serve para o usuário consultar o CNPJ de uma determinada empresa e retornar algumas informações sobre a mesma.
 
-A few resources to get you started if this is your first Flutter project:
+## Como funciona
+Ao entrar no aplicativo, será solicitado o CNPJ da empresa que o usuário deseja buscar e será retornado as informações:
+* Nome
+* Fantasia
+* CNPJ
+* Situação
+* Data da situação
+* Motivo da situação
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Para realizar consulta de outro CNPJ basta utilizar o botão disponível na tela em que foi retornado as informações
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Informações adicionais
+
+Será possível realizar apenas 3 consultas a cada minuto. Caso ultrapasse esse limite, o aplicativo irá alertar.

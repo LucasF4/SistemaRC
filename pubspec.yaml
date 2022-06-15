@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   brasil_fields: ^1.4.5
   http: ^0.13.4
+  fluttertoast: ^8.0.9
 
 dev_dependencies:
   flutter_test:

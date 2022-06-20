@@ -19,7 +19,10 @@ Ao entrar no aplicativo, será solicitado o CNPJ da empresa que o usuário desej
 * Data da situação
 * Motivo da situação
 
-Para realizar consulta de outro CNPJ basta utilizar o botão disponível na tela em que foi retornado as informações
+Para realizar consulta de outro CNPJ basta utilizar o botão disponível na tela em que foi retornado as informações.
+
+A consulta é realizada na API da Receita Federal disponibilizada gratuitamente.
+API: 
 
 ## Informações adicionais
 

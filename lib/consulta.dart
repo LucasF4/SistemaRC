@@ -65,6 +65,9 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                                           if (value!.isEmpty) {
                                             return 'Informe o CNPJ';
                                           }
+                                          if (value.length < 18) {
+                                            return "Tamanho do cnpj inválido";
+                                          }
                                           return null;
                                         },
                                         controller: _cnpj,
@@ -95,9 +98,6 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                                             fontSize: 18)),
                                     onPressed: () {
                                       if (_formKey.currentState!.validate()) {
-                                        if (_cnpj.text.length < 18) {
-                                          return print('CNPJ inválido.');
-                                        }
                                         _consultarCnpj();
                                       }
                                     },
@@ -127,34 +127,46 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                             Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    '${resultadoClass.nome}',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: w * 0.045),
-                                  ),
+                                  Expanded(
+                                    child: Text(
+                                      '${resultadoClass.nome}',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: w * 0.06),
+                                    ),
+                                  )
                                 ]),
+                            Divider(),
                             Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
-                                    child: Row(
+                                    child: Column(
                                       children: [
                                         Text(
-                                          'FANTASIA: ',
+                                          'FANTASIA',
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: w * 0.035),
-                                        ),
-                                        Text(
-                                          '${resultadoClass.fantasia}',
-                                          style: TextStyle(fontSize: w * 0.035),
                                         ),
                                       ],
                                     ),
                                   ),
                                 ]),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    '${resultadoClass.fantasia}',
+                                    style: TextStyle(fontSize: w * 0.035),
+                                  ),
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 12,
+                            ),
                             Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -177,7 +189,7 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                                   ),
                                 ]),
                             Divider(),
-                            SizedBox(height: h * 0.101),
+                            SizedBox(height: h * 0.08),
                             Text(
                               'SITUACAO',
                               style: TextStyle(
@@ -227,23 +239,37 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                                 ],
                               ),
                             ),
+                            SizedBox(
+                              height: 12,
+                            ),
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'MOTIVO: ',
+                                  'MOTIVO DA SITUAÇÃO',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: w * 0.039),
                                 ),
-                                resultadoClass.motivoSituacao != ''
-                                    ? Text(
-                                        '${resultadoClass.motivoSituacao}',
-                                        style: TextStyle(fontSize: w * 0.039),
-                                      )
-                                    : Text(
-                                        'NENHUM MOTIVO DESCRITO',
-                                        style: TextStyle(fontSize: w * 0.039),
-                                      )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                    child: resultadoClass.motivoSituacao != ''
+                                        ? Text(
+                                            '${resultadoClass.motivoSituacao}',
+                                            style:
+                                                TextStyle(fontSize: w * 0.039),
+                                          )
+                                        : Center(
+                                            child: Text(
+                                              'NENHUM MOTIVO DESCRITO',
+                                              style: TextStyle(
+                                                  fontSize: w * 0.039),
+                                            ),
+                                          ))
                               ],
                             ),
                             SizedBox(
@@ -297,6 +323,10 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
         var content = json.decode(response.body);
         print(content['nome']);
         print(content);
+        if (content['status'] == "ERROR") {
+          print('${content['message']}');
+          Fluttertoast.showToast(msg: '${content['message']}');
+        }
 
         Map<String, dynamic> dados = json.decode(response.body);
 

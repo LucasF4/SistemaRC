@@ -37,6 +37,7 @@ dependencies:
   brasil_fields: ^1.4.5
   http: ^0.13.4
   fluttertoast: ^8.0.9
+  splashscreen: ^1.2.0
 
 dev_dependencies:
   flutter_test:

@@ -1,7 +1,8 @@
 import 'package:consulta_cnpj/consulta.dart';
-import 'package:consulta_cnpj/models/splashscreen.dart';
 import 'package:flutter/material.dart';
 import 'settings/routes.dart';
+
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,9 +20,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: const ConsultaCnpj(),
-        initialRoute: GlobalRoutes.SPLASHSCREEN,
         routes: {
-          GlobalRoutes.SPLASHSCREEN: (context) => Splashscreen(),
           GlobalRoutes.CONSULTA: (context) => ConsultaCnpj()
         });
   }

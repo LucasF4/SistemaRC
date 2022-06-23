@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.consulta_cnpj">
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- Permissão para o aplicativo acessar a internet -->
    <application
-        android:label="consulta_cnpj"
+        android:label="Consulta CNPJ"
         android:name="${applicationName}"
         android:icon="@mipmap/rocket">
         <activity

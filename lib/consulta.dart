@@ -28,7 +28,7 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
     double w = MediaQuery.of(context).size.width;
 
     return Scaffold(
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Colors.white,
         body: resultadoClass.nome == null
             ? Center(
                 child: SingleChildScrollView(
@@ -37,9 +37,18 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.rocket_launch_sharp, size: 100),
+                          //Icon(Icons.rocket_launch_sharp, size: 100),
+                          Container(
+                            height: 100,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: 
+                                  AssetImage('assets/images/logo2.png')
+                              )
+                            ),
+                          ),
                           SizedBox(height: 80),
-                          Text('Bem vindo!',
+                          Text('Bem vindo(a)!',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 24)),
                           SizedBox(height: 10),
@@ -54,7 +63,7 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                               padding: EdgeInsets.symmetric(horizontal: 25.0),
                               child: Container(
                                   decoration: BoxDecoration(
-                                      color: Colors.white,
+                                      color: Colors.grey[300],
                                       border: Border.all(color: Colors.white),
                                       borderRadius: BorderRadius.circular(12)),
                                   child: Padding(
@@ -115,10 +124,13 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                     Container(
                       height: h - 100,
                       decoration: BoxDecoration(
+                        color: Colors.white,
                           image: DecorationImage(
                               image:
-                                  AssetImage('assets/images/backgroundApp.png'),
-                              fit: BoxFit.fill)),
+                                  AssetImage('assets/images/logo2.png'),
+                              //fit: BoxFit.fill
+                              colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.4), BlendMode.dstATop) /* Adicionando opacidade na imagem de fundo */
+                              )),
                       child: Padding(
                         padding: EdgeInsets.all(20),
                         child: Column(
@@ -231,7 +243,7 @@ class _ConsultaCnpjState extends State<ConsultaCnpj> {
                                     style: TextStyle(
                                         color:
                                             resultadoClass.situacao == 'ATIVA'
-                                                ? Colors.green[300]
+                                                ? Colors.green
                                                 : Colors.red,
                                         fontSize: w * 0.039,
                                         fontWeight: FontWeight.bold),

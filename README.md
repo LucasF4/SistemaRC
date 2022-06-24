@@ -21,8 +21,10 @@ Ao entrar no aplicativo, será solicitado o CNPJ da empresa que o usuário desej
 
 Para realizar consulta de outro CNPJ basta utilizar o botão disponível na tela em que foi retornado as informações.
 
-A consulta é realizada na API da Receita Federal disponibilizada gratuitamente.
-API: 
+A consulta é realizada na API da Receita Federal disponibilizada gratuitamente, sendo limitado em até 3 consultas por minuto.
+API: https://receitaws.com.br/v1/cnpj/{numeroDoCNPJ}
+
+A API realiza consulta o CNPJ, caso exista ele retornará os dados, se não ele retornará um aviso de CNPJ inexistente, isso será contado como uma consulta.
 
 ## Informações adicionais
 
